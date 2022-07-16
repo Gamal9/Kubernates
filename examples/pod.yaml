@@ -1,0 +1,20 @@
+apiVersion: v1                      # Kubernetes API version 
+kind: Pod                           # Kind of kubernetes resource (Pod)
+metadata:                           # Metadata about the resource
+  name: demowebapp
+  labels:
+    app: demowebapp
+spec:                               # Specifications for the resource 
+  containers:                       # Information about the containers that wll run in the pod 
+  - name: demowebapp
+    image: csdemoacr.azurecr.io/demowebapp:1.0
+    ports:
+    - containerPort: 80
+
+# kubectl apply –f pod.yaml      
+# kubectl describe pod [pod-name]
+# kubectl edit -f pod.yaml
+# Kubectl delete –f pod.yaml
+
+# To exec into container use:
+# kubectl exec pod-name -it sh
