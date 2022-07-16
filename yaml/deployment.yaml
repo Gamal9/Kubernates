@@ -1,0 +1,21 @@
+apiVersion: apps/v1              # Kubernetes API version 
+kind: Deployment                 # Kind of kubernetes resource (Deployment)
+metadata:                        # Metadata about the resource
+  name: [deployment-name]
+  labels:
+    app: [deployment-label]
+spec:
+  replicas: 1                    # Number of pods to create 
+  selector:                      # The selector is used to select the pod template (based on labels) 
+    matchLabels:
+      app: [pod-label]
+  template:                      # Pod template (Note the selector matches the template label)           
+    metadata:
+      labels:
+        app: [pod-label]
+    spec:
+      containers:                # Containers that will run in the pod
+      - name: [container-name]    
+        image: [container-image]
+        ports:
+        - containerPort: 80

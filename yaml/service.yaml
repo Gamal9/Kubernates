@@ -1,0 +1,12 @@
+apiVersion: v1                   # Kubernetes API version 
+kind: Service                    # Kind of kubernetes resource (Service)
+metadata:                        # Metadata about the resource  
+ name: [service-name]
+spec:
+ type: [service-type]            # Service type (ClusterIP,LoadBalancer...etc)
+ selector:
+    app: [pod-label]             # Pod template (labels) that service wil apply to 
+ ports:
+  - name: "[port-name]"          # Define service port and container target port  
+    port: [service-port]
+    targetPort: [container-port]
